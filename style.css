@@ -1,0 +1,357 @@
+:root {
+    /* Luxury Dark & Green Palette */
+    --primary-black: #050505;
+    --dark-green: #0a1f13;
+    --emerald: #143e26;
+    --accent-gold: #d4af37;
+    --gold-light: #f5d76e;
+    --text-white: #f8fcf9;
+    --text-muted: #a1b5a9;
+    --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--primary-black);
+    background-image: radial-gradient(circle at 50% 0%, rgba(20, 62, 38, 0.4) 0%, rgba(5, 5, 5, 1) 70%);
+    color: var(--text-white);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
+/* Header & Navigation */
+header {
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    background: linear-gradient(to bottom, rgba(5, 5, 5, 0.9), transparent);
+}
+
+.brand-logo {
+    max-height: 100px;
+    width: auto;
+    margin-bottom: 0.5rem;
+    object-fit: contain;
+}
+
+.brand-subtitle {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-top: 1rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: var(--transition-smooth);
+    border-bottom: 1px solid transparent;
+}
+
+.back-link:hover {
+    color: var(--accent-gold);
+    border-bottom: 1px solid var(--accent-gold);
+}
+
+/* Main Container */
+main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+/* Page Title Wrapper */
+.page-title-wrapper {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.page-title {
+    font-size: 3rem;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+}
+
+.page-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--accent-gold);
+    margin: 0 auto;
+}
+
+/* Bento/Masonry Grid for Home Page */
+.bento-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.bento-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: rgba(10, 31, 19, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition-smooth);
+    display: block;
+    text-decoration: none;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .bento-item:nth-child(1) { width: calc(45% - 1.5rem); }
+    .bento-item:nth-child(2) { width: calc(25% - 1.5rem); margin-top: 3rem; }
+    .bento-item:nth-child(3) { width: calc(30% - 1.5rem); } 
+    .bento-item:nth-child(4) { width: calc(33% - 1.5rem); margin-top: 1rem;} 
+    .bento-item:nth-child(5) { width: calc(67% - 1.5rem); }
+    .bento-item:nth-child(6) { width: calc(40% - 1.5rem); margin-top: -3rem; }
+    .bento-item:nth-child(7) { width: calc(60% - 1.5rem); } 
+}
+
+@media (min-width: 1024px) {
+    .bento-item:nth-child(1) { width: calc(40% - 1.5rem); }
+    .bento-item:nth-child(2) { width: calc(25% - 1.5rem); margin-top: 4rem; }
+    .bento-item:nth-child(3) { width: calc(35% - 1.5rem); margin-top: 1rem; }
+    .bento-item:nth-child(4) { width: calc(20% - 1.5rem); margin-top: -2rem; }
+    .bento-item:nth-child(5) { width: calc(50% - 1.5rem); }
+    .bento-item:nth-child(6) { width: calc(30% - 1.5rem); margin-top: 2rem; }
+    .bento-item:nth-child(7) { width: calc(60% - 1.5rem); }
+}
+
+.bento-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    opacity: 0.9;
+}
+
+/* Empty bento item placeholder */
+.bento-item img[src=""] {
+    min-height: 200px;
+    background: rgba(10, 31, 19, 0.6);
+}
+
+.bento-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.3) 50%, rgba(5,5,5,0.1) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    transition: var(--transition-smooth);
+}
+
+.bento-overlay h3 {
+    color: var(--text-white);
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    transform: translateY(10px);
+    transition: var(--transition-smooth);
+    margin-bottom: 0.5rem;
+}
+
+.bento-overlay span {
+    color: var(--accent-gold);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: var(--transition-smooth);
+}
+
+.bento-item:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(20, 62, 38, 0.6);
+    transform: translateY(-5px);
+    z-index: 10;
+}
+
+.bento-item:hover img {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.bento-item:hover .bento-overlay {
+    background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(20,62,38,0.4) 50%, transparent 100%);
+}
+
+.bento-item:hover .bento-overlay h3 {
+    color: var(--accent-gold);
+    transform: translateY(0);
+}
+
+.bento-item:hover .bento-overlay span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Product Gallery Grid (Inner Pages) */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    background-color: rgba(10, 31, 19, 0.5);
+    cursor: zoom-in;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition-smooth);
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 15px rgba(20, 62, 38, 0.6);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 1rem;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Gallery Empty State */
+.gallery-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 6rem 2rem;
+    border: 1px dashed rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    background: rgba(10, 31, 19, 0.2);
+}
+
+.gallery-empty p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+}
+
+/* Lightbox Modal */
+#lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease;
+    overflow: hidden;
+}
+
+#lightbox.active {
+    display: flex;
+    opacity: 1;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    transform: scale(0.95);
+    transition: transform 0.4s ease;
+    cursor: grab;
+}
+
+#lightbox.active img {
+    transform: scale(1);
+}
+
+#lightbox img:active {
+    cursor: grabbing;
+}
+
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: var(--text-white);
+    font-size: 2.5rem;
+    font-family: sans-serif;
+    font-weight: 100;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 1001;
+}
+
+.close-btn:hover {
+    color: var(--accent-gold);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-top: 2rem;
+}
+
+/* Responsive Adaptive */
+@media (max-width: 992px) {
+    .page-title { font-size: 2.5rem; }
+    .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+}
+
+@media (max-width: 600px) {
+    header { padding: 2rem 1rem; }
+    .brand-logo { max-height: 70px; }
+    .brand-subtitle { font-size: 0.8rem; letter-spacing: 2px;}
+    main { padding: 2rem 1rem; }
+    .page-title { font-size: 2rem; }
+    
+    .bento-grid { 
+        display: flex;
+        flex-direction: column;
+    }
+    .bento-item {
+        width: 100% !important;
+        margin-top: 0 !important;
+    }
+    
+    .gallery-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .close-btn { top: 15px; right: 25px; font-size: 2rem; }
+}
